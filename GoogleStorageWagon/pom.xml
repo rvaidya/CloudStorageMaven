@@ -43,7 +43,7 @@
 
     <artifactId>google-storage-wagon</artifactId>
     <groupId>com.github.rvaidya</groupId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <description>Google Cloud storage wagon</description>
     <version>2.4-SNAPSHOT</version>
 
@@ -68,7 +68,6 @@
             <name>Nexus Release Repository</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
-        <downloadUrl>https://oss.sonatype.org/content/groups/public/org/knowm/xchart</downloadUrl>
     </distributionManagement>
 
     <dependencies>
