@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>cloud-storage-maven</artifactId>
         <groupId>com.gkatzioura.maven.cloud</groupId>
@@ -7,22 +8,44 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo1.maven.org/maven2/</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <name>Google Storage Wagon</name>
+    <url>https://github.com/gkatzioura/CloudStorage</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
+    <developers>
+        <developer>
+            <name>Emmanouil Gkatziouras</name>
+            <email>emmanouil@gmail.com</email>
+            <organization>egkatzioura</organization>
+            <organizationUrl>https://egkatzioura.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Rahul Vaidya</name>
+            <email>rahul@rvaidya.com</email>
+            <organization>rvaidya</organization>
+            <organizationUrl>https://github.com/rvaidya</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/rvaidya/MavenCloudStorage/tree/master</url>
+        <connection>scm:git:git://github.com/rvaidya/MavenCloudStorage.git</connection>
+        <developerConnection>scm:git:ssh://github.com/rvaidya/MavenCloudStorage.git</developerConnection>
+    </scm>
 
     <artifactId>google-storage-wagon</artifactId>
     <groupId>com.github.rvaidya</groupId>
-    <packaging>maven-plugin</packaging>
+    <packaging>pom</packaging>
     <description>Google Cloud storage wagon</description>
+    <version>2.4-SNAPSHOT</version>
 
     <properties>
         <wagon.version>3.0.0</wagon.version>
@@ -34,13 +57,20 @@
         <gcs.version>1.83.0</gcs.version>
     </properties>
 
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <name>Nexus Release Repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <downloadUrl>https://oss.sonatype.org/content/groups/public/org/knowm/xchart</downloadUrl>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.maven.wagon</groupId>
@@ -87,14 +117,63 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.3</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
-                        <id>default-descriptor</id>
-                        <phase>process-classes</phase>
+                    <id>attach-sources</id>
+                    <goals>
+                        <goal>jar-no-fork</goal>
+                    </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                    <id>attach-javadocs</id>
+                    <goals>
+                        <goal>jar</goal>
+                    </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -123,5 +202,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
