@@ -7,11 +7,30 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo1.maven.org/maven2/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <artifactId>google-storage-wagon</artifactId>
+    <groupId>com.github.rvaidya</groupId>
     <packaging>maven-plugin</packaging>
     <description>Google Cloud storage wagon</description>
 
     <properties>
+        <wagon.version>3.0.0</wagon.version>
+        <logback.version>1.2.3</logback.version>
+        <commons-io.version>2.6</commons-io.version>
+        <junit.version>4.12</junit.version>
+        <maven.plugin.api.version>3.0</maven.plugin.api.version>
+        <maven.plugin.annotations.version>3.4</maven.plugin.annotations.version>
         <gcs.version>1.83.0</gcs.version>
     </properties>
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gkatzioura.maven.cloud.gcs.wagon;
+package com.github.rvaidya.maven.cloud.gcs.wagon;
 
 import java.io.File;
 import java.io.FileNotFoundException;

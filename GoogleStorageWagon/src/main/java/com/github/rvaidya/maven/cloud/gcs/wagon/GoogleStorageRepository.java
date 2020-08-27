@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.gkatzioura.maven.cloud.gcs.wagon;
+package com.github.rvaidya.maven.cloud.gcs.wagon;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +30,7 @@ import java.util.logging.Logger;
 import org.apache.maven.wagon.ResourceDoesNotExistException;
 import org.apache.maven.wagon.authentication.AuthenticationException;
 
-import com.gkatzioura.maven.cloud.gcs.StorageFactory;
+import com.github.rvaidya.maven.cloud.gcs.StorageFactory;
 import com.gkatzioura.maven.cloud.resolver.KeyResolver;
 import com.gkatzioura.maven.cloud.wagon.PublicReadProperty;
 import com.google.api.gax.paging.Page;

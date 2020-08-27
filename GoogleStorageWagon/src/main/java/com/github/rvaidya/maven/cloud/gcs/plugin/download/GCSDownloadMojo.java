@@ -1,4 +1,4 @@
-package com.gkatzioura.maven.cloud.gcs.plugin.download;
+package com.github.rvaidya.maven.cloud.gcs.plugin.download;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,8 +15,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 import com.gkatzioura.maven.cloud.KeyIteratorConcated;
-import com.gkatzioura.maven.cloud.gcs.StorageFactory;
-import com.gkatzioura.maven.cloud.gcs.plugin.PrefixKeysIterator;
+import com.github.rvaidya.maven.cloud.gcs.StorageFactory;
+import com.github.rvaidya.maven.cloud.gcs.plugin.PrefixKeysIterator;
 import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.BlobId;
 import com.google.cloud.storage.Storage;

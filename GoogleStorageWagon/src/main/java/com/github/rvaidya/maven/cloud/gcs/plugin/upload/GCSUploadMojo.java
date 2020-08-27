@@ -1,4 +1,4 @@
-package com.gkatzioura.maven.cloud.gcs.plugin.upload;
+package com.github.rvaidya.maven.cloud.gcs.plugin.upload;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +14,7 @@ import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
-import com.gkatzioura.maven.cloud.gcs.StorageFactory;
+import com.github.rvaidya.maven.cloud.gcs.StorageFactory;
 import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.google.cloud.storage.StorageOptions;

@@ -1,4 +1,4 @@
-package com.gkatzioura.maven.cloud.gcs;
+package com.github.rvaidya.maven.cloud.gcs;
 
 import java.io.File;
 import java.io.FileInputStream;

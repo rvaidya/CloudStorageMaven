@@ -1,4 +1,4 @@
-package com.gkatzioura.maven.cloud.gcs.plugin;
+package com.github.rvaidya.maven.cloud.gcs.plugin;
 
 import java.util.Iterator;
 import java.util.function.Consumer;
